@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
+  name: "Haynie's Corner Wiffleball League",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "The official page of the best little wiffleball league in the world. Located in Haynie's Corner Arts.",
   mainNav: [
     {
       title: "Home",
@@ -11,8 +11,8 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    
+    github: "https://github.com/diegoruny",
+    facebook: "https://www.facebook.com/hayniescornerwiffleballleague/",
   },
 }
