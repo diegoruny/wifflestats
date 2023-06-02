@@ -1,13 +1,38 @@
 import Image from "next/image"
 import Link from "next/link"
+import logoTournament from "public/logohcwiffleag.jpg"
 
 import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 
-import logoTournament from "../public/logohcwiffleag.jpg"
-import Standings from "./standings/page"
+import { Team, columns } from "./standings/columns"
+import { DataTable } from "./standings/data-table"
 
-export default function IndexPage() {
+async function getData(): Promise<Team[]> {
+  // Fetch data from your API here.
+  return [
+    {
+      id: "1",
+      name: "Team 1",
+      gamesPlayed: 10,
+      wins: 5,
+      losses: 5,
+      ties: 0,
+      homeRuns: 10,
+      strikeOuts: 10,
+      battingAverage: 0.5,
+      winningStreak: 2,
+      losingStreak: 3,
+      lastFiveGames: "WLLWW",
+      ranking: 1,
+      points: 10,
+    },
+    // ...
+  ]
+}
+
+export default async function IndexPage() {
+  const data = await getData()
   return (
     <>
       <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
@@ -29,7 +54,7 @@ export default function IndexPage() {
       </section>
       <section>
         <div className="container">
-          <Standings />
+          <DataTable columns={columns} data={data} />
         </div>
       </section>
     </>
