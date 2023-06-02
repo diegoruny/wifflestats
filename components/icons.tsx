@@ -14,7 +14,6 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   facebook: Facebook,
-  logo: (props: LucideProps) => <Image src={logo} alt="Logo" {...props} />,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path
