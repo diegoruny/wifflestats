@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import logoTournament from "public/logohcwiffleag.jpg"
+import Footer from 'components/footer'
 
 import { siteConfig } from "@/config/site"
 import { Button, buttonVariants } from "@/components/ui/button"
@@ -57,6 +58,7 @@ export default async function IndexPage() {
           <DataTable columns={columns} data={data} />
         </div>
       </section>
+      <Footer />
     </>
   )
 }
