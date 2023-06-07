@@ -1,10 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import logoTournament from "public/logohcwiffleag.jpg"
-import Footer from 'components/footer'
 
 import { siteConfig } from "@/config/site"
+import { sponsors } from "@/lib/sponsors"
 import { Button, buttonVariants } from "@/components/ui/button"
+import SponsorsSection from "@/components/sponsorsSection"
 
 import { Team, columns } from "./standings/columns"
 import { DataTable } from "./standings/data-table"
@@ -58,7 +59,7 @@ export default async function IndexPage() {
           <DataTable columns={columns} data={data} />
         </div>
       </section>
-      <Footer />
+      <SponsorsSection sponsors={sponsors} />
     </>
   )
 }
