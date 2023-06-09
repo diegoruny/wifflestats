@@ -10,20 +10,19 @@ export const siteConfig = {
       href: "/",
     },
     {
-      title: 'Teams',
-      href: '/teams'
+      title: "Teams",
+      href: "/teams",
     },
     {
       title: "Standings",
-      href: "/standings"
+      href: "/standings",
     },
     {
       title: "Schedule",
-      href: "/schedule"
-    }
+      href: "/schedule",
+    },
   ],
   links: {
-    
     github: "https://github.com/diegoruny",
     facebook: "https://www.facebook.com/hayniescornerwiffleballleague/",
   },

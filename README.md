@@ -10,10 +10,9 @@ Please note that this project is currently under active development. We're worki
 
 ## 📈 Features 📈
 
-
-* **Team Statistics**: Monitor your favorite team's progress throughout the season.
-* **Game Results**: Up-to-date scores and results from all league games.
-* **League Standings**: Weekly updated league standings and playoff positions.
+- **Team Statistics**: Monitor your favorite team's progress throughout the season.
+- **Game Results**: Up-to-date scores and results from all league games.
+- **League Standings**: Weekly updated league standings and playoff positions.
 
 ## 🛠️ Contributing 🛠️
 
