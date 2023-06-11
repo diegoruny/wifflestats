@@ -1,28 +1,15 @@
+import { useQuery } from "@tanstack/react-query"
+
 import { DataTable } from "@/components/data-table"
 
 import { Team, columns } from "./columns"
 
+const axios = require("axios").default
+
 async function getData(): Promise<Team[]> {
 	// Fetch data from your API here.
-	return [
-		{
-			id: "1",
-			name: "Team 1",
-			gamesPlayed: 10,
-			wins: 5,
-			losses: 5,
-			ties: 0,
-			homeRuns: 10,
-			strikeOuts: 10,
-			battingAverage: 0.5,
-			winningStreak: 2,
-			losingStreak: 3,
-			lastFiveGames: "WLLWW",
-			ranking: 1,
-			points: 10,
-		},
-		// ...
-	]
+	const res = await axios.get("http://localhost:4000/teams")
+	return res.data
 }
 
 export default async function Standings() {
