@@ -6,7 +6,6 @@ import logoTournament from "public/logohcwiffleag.jpg"
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
 
 interface MainNavProps {
 	items?: NavItem[]
@@ -24,7 +23,7 @@ export function MainNav({ items }: MainNavProps) {
 				<span className="inline-block font-bold ">{siteConfig.name}</span>
 			</Link>
 			{items?.length ? (
-				<nav className="hidden sm:flex gap-6">
+				<nav className="hidden gap-6 sm:flex">
 					{items?.map(
 						(item, index) =>
 							item.href && (

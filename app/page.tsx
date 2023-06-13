@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import axios from "axios"
 import logoTournament from "public/logohcwiffleag.jpg"
 
 import { sponsors } from "@/lib/sponsors"
@@ -10,11 +11,11 @@ import SponsorsSection from "@/components/sponsorsSection"
 import { Team } from "./standings/columns"
 import { columns } from "./standings/simpleColumns"
 
-const axios = require("axios").default
-
 async function getData(): Promise<Team[]> {
 	// Fetch data from your API here.
-	const res = await axios.get("http://localhost:3000/api/sheetData")
+	const res = await axios.get<Team[]>(
+		"https://wifflestats.vercel.app/api/sheetData"
+	)
 	return res.data
 }
 

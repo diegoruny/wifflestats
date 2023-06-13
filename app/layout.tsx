@@ -46,7 +46,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 							<SiteHeader />
 							<div className="flex-1">{children}</div>
 						</div>
-						<div className="fixed bottom-0 w-full rounded-lg z-50 bg-destructive-foreground">
+						<div className="fixed bottom-0 z-50 w-full rounded-lg bg-destructive-foreground">
 							<Alert />
 						</div>
 

@@ -8,9 +8,9 @@ interface ServiceAccount {
 }
 
 // Load the service account key JSON file.
-const serviceAccount: ServiceAccount = JSON.parse(
+const serviceAccount = JSON.parse(
 	process.env.GOOGLE_APPLICATION_CREDENTIALS || ""
-)
+) as ServiceAccount
 // Define the scopes for the Google Sheets API.
 const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 

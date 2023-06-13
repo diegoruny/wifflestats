@@ -24,7 +24,7 @@ export function SiteHeader() {
 									variant: "ghost",
 								})}
 							>
-								<Icons.gitHub className="hidden sm:inline-block h-5 w-5" />
+								<Icons.gitHub className="hidden h-5 w-5 sm:inline-block" />
 								<span className="sr-only">GitHub</span>
 							</div>
 						</Link>
@@ -39,7 +39,7 @@ export function SiteHeader() {
 									variant: "ghost",
 								})}
 							>
-								<Icons.facebook className="hidden sm:inline-block h-5 w-5 fill-current" />
+								<Icons.facebook className="hidden h-5 w-5 fill-current sm:inline-block" />
 								<span className="sr-only">Facebook</span>
 							</div>
 						</Link>
