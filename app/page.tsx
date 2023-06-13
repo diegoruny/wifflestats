@@ -11,16 +11,17 @@ import SponsorsSection from "@/components/sponsorsSection"
 import { Team } from "./standings/columns"
 import { columns } from "./standings/simpleColumns"
 
-async function getData(): Promise<Team[]> {
-	// Fetch data from your API here.
-	const res = await axios.get<Team[]>(
-		"https://wifflestats.vercel.app/api/sheetData"
-	)
-	return res.data
-}
+// async function getData(): Promise<Team[]> {
+// 	// Fetch data from your API here.
+// 	const res = await axios.get<Team[]>(
+// 		"https://wifflestats.vercel.app/api/sheetData"
+// 	)
+// 	return res.data
+// }
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export default async function IndexPage() {
-	const data = await getData()
+	// const data = await getData()
 	return (
 		<>
 			<section className="container grid items-center gap-6 pb-8 pt-6 text-center md:py-10">
@@ -45,7 +46,7 @@ export default async function IndexPage() {
 					<h2 className="scroll-m-20 border-b pb-2 text-center text-3xl font-semibold tracking-tight transition-colors first:mt-0">
 						Current Season
 					</h2>
-					<DataTable columns={columns} data={data} />
+					{/* <DataTable columns={columns} data={data} /> */}
 					<Button variant={"link"} className="w-fit place-self-end">
 						<Link href="/standings">VIEW MORE</Link>
 					</Button>

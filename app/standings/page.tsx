@@ -4,20 +4,22 @@ import { DataTable } from "@/components/data-table"
 
 import { Team, columns } from "./columns"
 
-async function getData(): Promise<Team[]> {
-	// Fetch data from your API here.
-	const res = await axios.get<Team[]>(
-		"https://wifflestats.vercel.app/api/sheetData"
-	)
-	return res.data
-}
+// async function getData(): Promise<Team[]> {
+// 	// Fetch data from your API here.
+// 	const res = await axios.get<Team[]>(
+// 		"https://wifflestats.vercel.app/api/sheetData"
+// 	)
+// 	return res.data
+// }
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export default async function Standings() {
-	const data = await getData()
+	// const data = await getData()
 
 	return (
 		<div className="container mx-auto mb-8 py-10">
-			<DataTable columns={columns} data={data} />
+			{/* <DataTable columns={columns} data={data} /> */}
+			<h1>TEST</h1>
 		</div>
 	)
 }
