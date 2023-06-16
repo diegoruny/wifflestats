@@ -2,15 +2,20 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import { google } from "googleapis"
 
 // Define the type for the service account key.
-interface ServiceAccount {
-	client_email: string
-	private_key: string
-}
+// interface ServiceAccount {
+// 	client_email: string
+// 	private_key: string
+// }
 
 // Load the service account key JSON file.
-const serviceAccount = JSON.parse(
-	process.env.GOOGLE_APPLICATION_CREDENTIALS || ""
-) as ServiceAccount
+// DEPLOYMENT: Uncomment the following line and comment the one after it.
+// const serviceAccount = JSON.parse(
+// 	process.env.GOOGLE_APPLICATION_CREDENTIALS || ""
+// ) as ServiceAccount
+// DEVELOPMENT: Uncomment the following line and comment the one above it.
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+import serviceAccount from "../../secret.json"
+
 // Define the scopes for the Google Sheets API.
 const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
@@ -23,8 +28,8 @@ const auth = new google.auth.JWT(
 )
 
 // Your Google Sheets API configuration.
-const spreadsheetId = process.env.SPREADSHEET_ID
-const range = "teams!A1:M11"
+const spreadsheetId = process.env.SPREADSHEET_ID2
+const range = "Team Wins and Losses!K11:O17"
 
 export default async function handler(
 	req: NextApiRequest,
@@ -39,7 +44,10 @@ export default async function handler(
 			spreadsheetId,
 			range,
 		})
+		//show the response in the console
 
+		const headers = response.data.values?.slice(0, 1) ?? []
+		console.log("headers:", headers)
 		// Assuming the first row is headers, we remove it.
 		const rows = response.data.values?.slice(1)
 
@@ -50,7 +58,7 @@ export default async function handler(
 		// Clean and process the data as necessary.
 		const cleanedData = rows.map((row) => ({
 			id: String(row[0]),
-			name: String(row[0]),
+			team: String(row[0]),
 			gamesPlayed: Number(row[1]),
 			wins: Number(row[2]),
 			losses: Number(row[3]),

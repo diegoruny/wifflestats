@@ -11,12 +11,8 @@ import { Team } from "./columns"
 
 export const columns: ColumnDef<Team>[] = [
 	{
-		accessorKey: "name",
-		header: "Team Name",
-	},
-	{
-		accessorKey: "gamesPlayed",
-		header: "GP",
+		accessorKey: "team",
+		header: "Team",
 	},
 	{
 		accessorKey: "wins",
@@ -27,11 +23,11 @@ export const columns: ColumnDef<Team>[] = [
 		header: "L",
 	},
 	{
-		accessorKey: "ranking",
-		header: "Rank",
+		accessorKey: "gamesBehind",
+		header: "GB",
 	},
 	{
-		accessorKey: "points",
-		header: "Pts",
+		accessorKey: "winPercentage",
+		header: "%",
 	},
 ]

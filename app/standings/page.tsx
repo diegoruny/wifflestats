@@ -6,9 +6,7 @@ import { Team, columns } from "./columns"
 
 async function getData(): Promise<Team[]> {
 	// Fetch data from your API here.
-	const res = await axios.get<Team[]>(
-		"https://wifflestats.vercel.app/api/sheetData"
-	)
+	const res = await axios.get<Team[]>("http://localhost:3000/api/sheetData")
 	return res.data
 }
 
