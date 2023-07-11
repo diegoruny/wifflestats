@@ -30,23 +30,23 @@ const HamburgerNav = () => {
 						<MainNav items={siteConfig.mainNav} />
 					</SheetTitle>
 				</SheetHeader>
-
-				<div className="mt-5 flex flex-col gap-3">
-					{siteConfig.mainNav.map(
-						(item, index) =>
-							item.href && (
-								<SheetClose asChild>
-									<Link
-										key={index}
-										href={item.href}
-										className={cn("border-b text-xl font-semibold")}
-									>
-										{item.title}
-									</Link>
-								</SheetClose>
-							)
-					)}
-				</div>
+				{siteConfig.mainNav.length ? (
+					<nav className="mt-5 flex flex-col gap-3">
+						{siteConfig.mainNav.map(
+							(item, index) =>
+								item.href && (
+									<SheetClose asChild key={index}>
+										<Link
+											href={item.href}
+											className={cn("border-b text-xl font-semibold")}
+										>
+											{item.title}
+										</Link>
+									</SheetClose>
+								)
+						)}
+					</nav>
+				) : null}
 			</SheetContent>
 		</Sheet>
 	)
