@@ -10,20 +10,36 @@ import { Separator } from "@/components/ui/separator"
 import SponsorsSection from "@/components/sponsorsSection"
 import { StatsLinkCards } from "@/components/statsLinkCards"
 
+interface DataItem {
+	w: number
+	l: number
+}
+
+interface Column {
+	accessorKey: string
+	header: string
+}
+
+interface APIResponse {
+	data: DataItem[]
+}
+
 async function getData() {
 	// Fetch data from your API here.
 	const range = "Team Wins and Losses!A1:C13"
 	const encodedRange = encodeURIComponent(range)
-	const response = await fetch(`http://localhost:3000/api/${encodedRange}`)
+	const response: Response = await fetch(
+		`http://localhost:3000/api/${encodedRange}`
+	)
 
 	const data = await response.json()
 
 	// Assuming data is an array of objects
-	const slicedData = data.slice(0, 1)[0]
+	const slicedData: DataItem = data.slice(0, 1)[0]
 
-	const columns = Object.keys(slicedData).map((key) => ({
-		accessorKey: slicedData[key].toLowerCase(),
-		header: slicedData[key].toUpperCase(),
+	const columns: Column[] = Object.keys(slicedData).map((key) => ({
+		accessorKey: key.toLowerCase(),
+		header: key.toUpperCase(),
 	}))
 
 	// Add a new column for win percentage
@@ -32,7 +48,7 @@ async function getData() {
 		header: "Win %",
 	})
 
-	const values = data.slice(1)
+	const values = data.slice(1) // creo que aca esta el error de que no se muestra la tabla
 
 	// Calculate win percentage for each row
 	const updatedValues = values.map((value) => {

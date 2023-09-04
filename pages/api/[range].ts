@@ -41,6 +41,7 @@ export default async function handler(
 			typeof req.query.range === "string"
 				? decodeURIComponent(req.query.range)
 				: ""
+		console.log("Range:", range)
 		// Get the values from the spreadsheet.
 		const response = await sheets.spreadsheets.values.get({
 			spreadsheetId,
