@@ -118,7 +118,16 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { google } from "googleapis"
 
-import serviceAccount from "../../secret.json"
+// Define the type for the service account key.
+interface ServiceAccount {
+	client_email: string
+	private_key: string
+}
+
+// Load the service account key JSON file.
+const serviceAccount = JSON.parse(
+	process.env.GOOGLE_APPLICATION_CREDENTIALS || ""
+) as ServiceAccount
 
 const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
@@ -129,7 +138,7 @@ const auth = new google.auth.JWT(
 	scopes
 )
 
-const spreadsheetId = process.env.SPREADSHEET_ID2
+const spreadsheetId = process.env.SPREADSHEET_ID
 
 export default async function handler(
 	req: NextApiRequest,

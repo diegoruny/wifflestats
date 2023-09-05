@@ -2,19 +2,19 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import { google } from "googleapis"
 
 // Define the type for the service account key.
-// interface ServiceAccount {
-// 	client_email: string
-// 	private_key: string
-// }
+interface ServiceAccount {
+	client_email: string
+	private_key: string
+}
 
 // Load the service account key JSON file.
 // DEPLOYMENT: Uncomment the following line and comment the one after it.
-// const serviceAccount = JSON.parse(
-// 	process.env.GOOGLE_APPLICATION_CREDENTIALS || ""
-// ) as ServiceAccount
+const serviceAccount = JSON.parse(
+	process.env.GOOGLE_APPLICATION_CREDENTIALS || ""
+) as ServiceAccount
 // DEVELOPMENT: Uncomment the following line and comment the one above it.
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-import serviceAccount from "../../secret.json"
+// import serviceAccount from "../../secret.json"
 
 // Define the scopes for the Google Sheets API.
 const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
@@ -28,7 +28,7 @@ const auth = new google.auth.JWT(
 )
 
 // Your Google Sheets API configuration.
-const spreadsheetId = process.env.SPREADSHEET_ID2
+const spreadsheetId = process.env.SPREADSHEET_ID
 const range = "individual Hitting!A1:M173"
 
 export default async function handler(
