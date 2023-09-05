@@ -20,10 +20,6 @@ interface Column {
 	header: string
 }
 
-interface APIResponse {
-	data: DataItem[]
-}
-
 async function getData() {
 	// Fetch data from your API here.
 	const range = "Team Wins and Losses!A1:C13"
@@ -31,15 +27,17 @@ async function getData() {
 	const response: Response = await fetch(
 		`http://localhost:3000/api/${encodedRange}`
 	)
-
-	const data = await response.json()
+	console.log(`response: ${JSON.stringify(response)}`)
+	const data: (DataItem | string[])[] = await response.json()
+	console.log(`data: ${JSON.stringify(data)}`)
 
 	// Assuming data is an array of objects
-	const slicedData: DataItem = data.slice(0, 1)[0]
-
-	const columns: Column[] = Object.keys(slicedData).map((key) => ({
-		accessorKey: key.toLowerCase(),
-		header: key.toUpperCase(),
+	const slicedData: string[] = data[0] as string[]
+	console.log(`slicedData: ${JSON.stringify(slicedData)}`)
+	// Get the column names
+	const columns: Column[] = slicedData.map((header) => ({
+		accessorKey: header.toLowerCase(),
+		header: header.toUpperCase(),
 	}))
 
 	// Add a new column for win percentage
@@ -47,11 +45,12 @@ async function getData() {
 		accessorKey: "%",
 		header: "Win %",
 	})
-
-	const values = data.slice(1) // creo que aca esta el error de que no se muestra la tabla
+	// The rest of "data" are the actual data we want to display in the table.
+	const rawValues: DataItem[] = data.slice(1) as DataItem[]
+	console.log(`Raw values: ${JSON.stringify(rawValues)}`)
 
 	// Calculate win percentage for each row
-	const updatedValues = values.map((value) => {
+	const values = rawValues.map((value) => {
 		const winPercentage = (value.w / (value.w + value.l)).toFixed(3)
 		return {
 			...value,
@@ -59,12 +58,11 @@ async function getData() {
 		}
 	})
 
-	return { columns, values: updatedValues }
+	return { columns, values }
 }
 
 export default async function IndexPage() {
-	const data = await getData()
-	const [columns, values] = [data.columns, data.values]
+	const { columns, values } = await getData()
 
 	return (
 		<>
