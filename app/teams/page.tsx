@@ -3,7 +3,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const getData = async (range: string) => {
 	const encodedRange = encodeURIComponent(range)
-	const response = await fetch(`http://localhost:3000/api/${encodedRange}`)
+	const response = await fetch(
+		`https://wifflestats.vercel.app/api/${encodedRange}`
+	)
 	const data = await response.json()
 
 	// Assuming data is an array of objects

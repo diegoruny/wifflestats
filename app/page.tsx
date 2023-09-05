@@ -25,7 +25,7 @@ async function getData() {
 	const range = "Team Wins and Losses!A1:C13"
 	const encodedRange = encodeURIComponent(range)
 	const response: Response = await fetch(
-		`http://localhost:3000/api/${encodedRange}`
+		`https://wifflestats.vercel.app/api/${encodedRange}`
 	)
 	console.log(`response: ${JSON.stringify(response)}`)
 	const data: (DataItem | string[])[] = await response.json()

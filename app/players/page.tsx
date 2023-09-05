@@ -8,7 +8,9 @@ async function getData(range: string) {
 	// Fetch data from your API here.
 
 	const encodedRange = encodeURIComponent(range)
-	const response = await fetch(`http://localhost:3000/api/${encodedRange}`)
+	const response = await fetch(
+		`https://wifflestats.vercel.app/api/${encodedRange}`
+	)
 
 	const data = await response.json()
 
