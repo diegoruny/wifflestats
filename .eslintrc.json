@@ -26,10 +26,16 @@
 	},
 	"overrides": [
 		{
+			"files": ["*.js", "*.jsx"],
+			"rules": {
+				"@typescript-eslint/*": "off"
+			}
+		},
+		{
 			"files": ["*.ts", "*.tsx"],
 			"parser": "@typescript-eslint/parser",
 			"parserOptions": {
-				"project": true
+				"project": "./tsconfig.json"
 			}
 		}
 	]
