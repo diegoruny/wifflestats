@@ -1,164 +1,63 @@
-{
-	"teams": [
-		{
-			"id": "1",
-			"name": "The Unstoppable Unicorns",
-			"gamesPlayed": 10,
-			"wins": 5,
-			"losses": 4,
-			"ties": 1,
-			"homeRuns": 15,
-			"strikeOuts": 5,
-			"battingAverage": 0.5,
-			"winningStreak": 2,
-			"losingStreak": 1,
-			"lastFiveGames": "WLWWW",
-			"ranking": 1,
-			"points": 20
-		},
-		{
-			"id": "2",
-			"name": "The Dancing Dinos",
-			"gamesPlayed": 10,
-			"wins": 4,
-			"losses": 5,
-			"ties": 1,
-			"homeRuns": 10,
-			"strikeOuts": 10,
-			"battingAverage": 0.4,
-			"winningStreak": 1,
-			"losingStreak": 2,
-			"lastFiveGames": "WLLWL",
-			"ranking": 2,
-			"points": 18
-		},
-		{
-			"id": "3",
-			"name": "The Laughing Llamas",
-			"gamesPlayed": 10,
-			"wins": 6,
-			"losses": 4,
-			"ties": 0,
-			"homeRuns": 12,
-			"strikeOuts": 8,
-			"battingAverage": 0.6,
-			"winningStreak": 3,
-			"losingStreak": 1,
-			"lastFiveGames": "WWLWW",
-			"ranking": 3,
-			"points": 22
-		},
-		{
-			"id": "4",
-			"name": "The Hopping Hedgehogs",
-			"gamesPlayed": 10,
-			"wins": 7,
-			"losses": 2,
-			"ties": 1,
-			"homeRuns": 14,
-			"strikeOuts": 6,
-			"battingAverage": 0.7,
-			"winningStreak": 4,
-			"losingStreak": 1,
-			"lastFiveGames": "WWLWW",
-			"ranking": 4,
-			"points": 24
-		},
-		{
-			"id": "5",
-			"name": "The Bouncing Bunnies",
-			"gamesPlayed": 10,
-			"wins": 3,
-			"losses": 6,
-			"ties": 1,
-			"homeRuns": 8,
-			"strikeOuts": 12,
-			"battingAverage": 0.3,
-			"winningStreak": 1,
-			"losingStreak": 3,
-			"lastFiveGames": "LWLLL",
-			"ranking": 5,
-			"points": 16
-		},
-		{
-			"id": "6",
-			"name": "The Groovy Gorillas",
-			"gamesPlayed": 10,
-			"wins": 4,
-			"losses": 5,
-			"ties": 1,
-			"homeRuns": 9,
-			"strikeOuts": 11,
-			"battingAverage": 0.4,
-			"winningStreak": 2,
-			"losingStreak": 2,
-			"lastFiveGames": "LWLWL",
-			"ranking": 6,
-			"points": 17
-		},
-		{
-			"id": "7",
-			"name": "The Prancing Pandas",
-			"gamesPlayed": 10,
-			"wins": 5,
-			"losses": 4,
-			"ties": 1,
-			"homeRuns": 13,
-			"strikeOuts": 7,
-			"battingAverage": 0.5,
-			"winningStreak": 2,
-			"losingStreak": 1,
-			"lastFiveGames": "WWLLW",
-			"ranking": 7,
-			"points": 20
-		},
-		{
-			"id": "8",
-			"name": "The Jolly Jaguars",
-			"gamesPlayed": 10,
-			"wins": 4,
-			"losses": 5,
-			"ties": 1,
-			"homeRuns": 11,
-			"strikeOuts": 9,
-			"battingAverage": 0.4,
-			"winningStreak": 1,
-			"losingStreak": 2,
-			"lastFiveGames": "WLLWL",
-			"ranking": 8,
-			"points": 18
-		},
-		{
-			"id": "9",
-			"name": "The Zippy Zebras",
-			"gamesPlayed": 10,
-			"wins": 6,
-			"losses": 3,
-			"ties": 1,
-			"homeRuns": 14,
-			"strikeOuts": 6,
-			"battingAverage": 0.6,
-			"winningStreak": 3,
-			"losingStreak": 1,
-			"lastFiveGames": "WWLWW",
-			"ranking": 9,
-			"points": 22
-		},
-		{
-			"id": "10",
-			"name": "The Kicking Kangaroos",
-			"gamesPlayed": 10,
-			"wins": 7,
-			"losses": 2,
-			"ties": 1,
-			"homeRuns": 15,
-			"strikeOuts": 5,
-			"battingAverage": 0.7,
-			"winningStreak": 4,
-			"losingStreak": 1,
-			"lastFiveGames": "WWLWW",
-			"ranking": 10,
-			"points": 24
-		}
-	]
-}
+[
+	["team", "w", "l"],
+	{
+		"team": "711",
+		"w": 7,
+		"l": 2
+	},
+	{
+		"team": "Bokeh",
+		"w": 7,
+		"l": 2
+	},
+	{
+		"team": "Brewvo",
+		"w": 4,
+		"l": 5
+	},
+	{
+		"team": "Doc's",
+		"w": 8,
+		"l": 1
+	},
+	{
+		"team": "EPO",
+		"w": 2,
+		"l": 7
+	},
+	{
+		"team": "HCO",
+		"w": 7,
+		"l": 2
+	},
+	{
+		"team": "Hood Rats",
+		"w": 4,
+		"l": 5
+	},
+	{
+		"team": "Kipplee's",
+		"w": 4,
+		"l": 6
+	},
+	{
+		"team": "Leroy's",
+		"w": 3,
+		"l": 7
+	},
+	{
+		"team": "Part Timers",
+		"w": 0,
+		"l": 10
+	},
+	{
+		"team": "Sauced",
+		"w": 5,
+		"l": 4
+	},
+	{
+		"team": "Working",
+		"w": 5,
+		"l": 5
+	}
+]

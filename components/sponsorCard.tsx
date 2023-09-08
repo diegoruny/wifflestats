@@ -4,23 +4,28 @@ import { SponsorCardProps } from "types/sponsors"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
+import { AspectRatio } from "./ui/aspect-ratio"
+
 const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor }) => {
 	return (
 		<a href={sponsor.link}>
-			<Card className="relative flex h-[200px] w-[300px] flex-col overflow-hidden">
-				<CardContent className="relative h-[150px] w-full overflow-hidden">
-					<Image
-						src={`/images/${sponsor.image}`}
-						alt={`${sponsor.name} Logo`}
-						className="h-full w-full object-contain p-6"
-						fill={true}
-					/>
-				</CardContent>
-				<CardHeader className="relative flex h-[50px] w-full items-center justify-center">
+			<Card className="hover:bg-accent hover:text-accent-foreground flex h-[250px] w-56 flex-col justify-around">
+				<CardHeader className="items-center p-3">
+					<div className="w-[200px]">
+						<AspectRatio ratio={4 / 3}>
+							<Image
+								src={`/images/${sponsor.image}`}
+								alt={`${sponsor.name} Logo`}
+								fill
+							/>
+						</AspectRatio>
+					</div>
+				</CardHeader>
+				<CardContent className="p-4 text-center text-base">
 					<CardTitle className="text-muted-foreground">
 						{sponsor.name}
 					</CardTitle>
-				</CardHeader>
+				</CardContent>
 			</Card>
 		</a>
 	)

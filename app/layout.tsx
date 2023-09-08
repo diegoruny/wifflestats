@@ -1,4 +1,5 @@
-import "@/styles/globals.css"
+import "@/app/globals.css"
+
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				<head />
 				<body
 					className={cn(
-						"min-h-screen bg-background font-sans antialiased",
+						"bg-background min-h-screen font-sans antialiased",
 						fontSans.variable
 					)}
 				>
@@ -46,7 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 							<SiteHeader />
 							<div className="flex-1">{children}</div>
 						</div>
-						<div className="fixed bottom-0 z-50 w-full rounded-lg bg-destructive-foreground">
+						<div className="bg-destructive-foreground fixed bottom-0 z-50 w-full rounded-lg">
 							<Alert />
 						</div>
 

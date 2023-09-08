@@ -3,9 +3,10 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
+		"noImplicitAny": false,
 		"strict": false,
 		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
+		"noEmit": false,
 		"incremental": true,
 		"esModuleInterop": true,
 		"module": "esnext",
@@ -22,8 +23,16 @@
 				"name": "next"
 			}
 		],
-		"strictNullChecks": true
+		"strictNullChecks": false
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"app/page.jsx",
+		"app/teams/page.jsx",
+		"app/players/page.jsx"
+	],
 	"exclude": ["node_modules"]
 }

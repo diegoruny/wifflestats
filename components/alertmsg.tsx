@@ -1,5 +1,7 @@
+import Link from "next/link"
 import { AlertTriangle } from "lucide-react"
 
+import { siteConfig } from "@/config/site"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 const Alertmsg = () => {
@@ -8,8 +10,17 @@ const Alertmsg = () => {
 			<AlertTriangle className="h-5 w-5" />
 			<AlertTitle>Heads up!</AlertTitle>
 			<AlertDescription>
-				This website is under construction. Please check back later. The info
-				Presented here its just for development purposes and not accurate.
+				This is an unfinished project and is not on developmnent. Please{" "}
+				<Link
+					className="hover:text-primary-foreground  underline"
+					href={siteConfig.links.portfolioContact}
+				>
+					contact us
+				</Link>{" "}
+				if you need more info.
+				<br />
+				The brands and logos are property of their respective owners.they have
+				only been used for educational purposes.
 			</AlertDescription>
 		</Alert>
 	)
