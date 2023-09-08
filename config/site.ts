@@ -25,5 +25,6 @@ export const siteConfig = {
 	links: {
 		github: "https://github.com/diegoruny",
 		facebook: "https://www.facebook.com/hayniescornerwiffleballleague/",
+		portfolioContact: "https://diegodelgado.dev/contact",
 	},
 }

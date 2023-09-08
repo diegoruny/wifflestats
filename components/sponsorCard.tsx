@@ -9,7 +9,7 @@ import { AspectRatio } from "./ui/aspect-ratio"
 const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor }) => {
 	return (
 		<a href={sponsor.link}>
-			<Card className="flex h-[250px] w-56 flex-col justify-around">
+			<Card className="hover:bg-accent hover:text-accent-foreground flex h-[250px] w-56 flex-col justify-around">
 				<CardHeader className="items-center p-3">
 					<div className="w-[200px]">
 						<AspectRatio ratio={4 / 3}>

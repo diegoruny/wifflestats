@@ -36,7 +36,7 @@ async function getData() {
 
 	// Assuming data is an array of objects
 	const slicedData: string[] = data[0] as string[]
-	console.log(`slicedData: ${JSON.stringify(slicedData)}`)
+	// console.log(`slicedData: ${JSON.stringify(slicedData)}`)
 	// Get the column names
 	const columns: Column[] = slicedData.map((header) => ({
 		accessorKey: header.toLowerCase(),
@@ -50,7 +50,7 @@ async function getData() {
 	})
 	// The rest of "data" are the actual data we want to display in the table.
 	const rawValues: DataItem[] = data.slice(1) as DataItem[]
-	console.log(`Raw values: ${JSON.stringify(rawValues)}`)
+	// console.log(`Raw values: ${JSON.stringify(rawValues)}`)
 
 	// Calculate win percentage for each row
 	const values = rawValues.map((value) => {

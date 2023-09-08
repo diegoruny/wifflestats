@@ -15,7 +15,7 @@ export const StatsLinkCards = () => {
 		<section>
 			<div className="flex flex-row justify-evenly ">
 				<Link href={"/players"}>
-					<Card className="hover:bg-primary-foreground h-[100px] w-[90px] text-center md:w-32">
+					<Card className="hover:bg-accent hover:text-accent-foreground h-[100px] w-[90px] text-center md:w-32">
 						<CardHeader className="items-center p-3">
 							<PersonIcon className="h-[34px] w-[34px]" />
 						</CardHeader>
@@ -26,7 +26,7 @@ export const StatsLinkCards = () => {
 					</Card>
 				</Link>
 				<Link href={"/teams"}>
-					<Card className="hover:bg-primary-foreground h-[100px] w-[90px] text-center md:w-32">
+					<Card className="hover:bg-accent hover:text-accent-foreground h-[100px] w-[90px] text-center md:w-32">
 						<CardHeader className="items-center p-3">
 							<Users className="h-[34px] w-[34px]" />
 						</CardHeader>
