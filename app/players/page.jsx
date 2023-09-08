@@ -4,15 +4,17 @@ import { DataTable } from "@/components/ui/data-table"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-async function getData(range: string) {
+import dbMock from "../../db.json"
+
+// async function getData(range: string) {
+async function getData() {
 	// Fetch data from your API here.
 
-	const encodedRange = encodeURIComponent(range)
-	const response = await fetch(
-		`https://wifflestats.vercel.app/api/${encodedRange}`
-	)
+	// const encodedRange = encodeURIComponent(range)
+	// const response = await fetch(`http://localhost:3000/api/${encodedRange}`)
 
-	const data = await response.json()
+	// const data = await response.json()
+	const data = dbMock
 
 	// Assuming data is an array of objects
 	const slicedData = data.slice(0, 1)[0]

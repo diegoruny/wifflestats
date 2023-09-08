@@ -10,6 +10,8 @@ import { Separator } from "@/components/ui/separator"
 import SponsorsSection from "@/components/sponsorsSection"
 import { StatsLinkCards } from "@/components/statsLinkCards"
 
+import dbMock from "../db.json"
+
 interface DataItem {
 	w: number
 	l: number
@@ -22,14 +24,15 @@ interface Column {
 
 async function getData() {
 	// Fetch data from your API here.
-	const range = "Team Wins and Losses!A1:C13"
-	const encodedRange = encodeURIComponent(range)
-	const response: Response = await fetch(
-		`https://wifflestats.vercel.app/api/${encodedRange}`
-	)
-	console.log(`response: ${JSON.stringify(response)}`)
-	const data: (DataItem | string[])[] = await response.json()
-	console.log(`data: ${JSON.stringify(data)}`)
+	// const range = "Team Wins and Losses!A1:C13"
+	// const encodedRange = encodeURIComponent(range)
+	// const response: Response = await fetch(
+	// 	`http://localhost:3000/api/${encodedRange}`
+	// )
+	// console.log(`response: ${JSON.stringify(response)}`)
+	// const data: (DataItem | string[])[] = await response.json()
+	// console.log(`data: ${JSON.stringify(data)}`)
+	const data = dbMock
 
 	// Assuming data is an array of objects
 	const slicedData: string[] = data[0] as string[]
