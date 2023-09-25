@@ -6,7 +6,7 @@ import dbMock from "../../db.json"
 // const getData = async (range: string) => {
 const getData = async (range) => {
 	const encodedRange = encodeURIComponent(range)
-	const response = await fetch(`http://localhost:3000/api/${encodedRange}`)
+	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 	const data = await response.json()
 	// const data = dbMock
 	// Assuming data is an array of objects

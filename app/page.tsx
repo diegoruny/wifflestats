@@ -22,14 +22,13 @@ interface Column {
 	accessorKey: string
 	header: string
 }
-
+// Acabo de canbiar el fetch url y toca deployear a vercel pero toca comprobar esta tomando la respuesta de la api
 async function getData() {
 	// Fetch data from your API here.
 	const range = "Team Wins and Losses!A1:C13"
 	const encodedRange = encodeURIComponent(range)
-	const response: Response = await fetch(
-		`http://localhost:3000/api/${encodedRange}`
-	)
+	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
+
 	console.log(`response: ${JSON.stringify(response)}`)
 	const data: (DataItem | string[])[] = await response.json()
 	// const rawData = JSON.stringify(data)
