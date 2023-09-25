@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import Image from "next/image"
 import Link from "next/link"
 import logoTournament from "public/logohcwiffleag.jpg"
@@ -10,7 +11,7 @@ import { Separator } from "@/components/ui/separator"
 import SponsorsSection from "@/components/sponsorsSection"
 import { StatsLinkCards } from "@/components/statsLinkCards"
 
-import dbMock from "../db.json"
+// import dbMock from "../db.json"
 
 interface DataItem {
 	w: number
@@ -24,15 +25,16 @@ interface Column {
 
 async function getData() {
 	// Fetch data from your API here.
-	// const range = "Team Wins and Losses!A1:C13"
-	// const encodedRange = encodeURIComponent(range)
-	// const response: Response = await fetch(
-	// 	`http://localhost:3000/api/${encodedRange}`
-	// )
-	// console.log(`response: ${JSON.stringify(response)}`)
-	// const data: (DataItem | string[])[] = await response.json()
+	const range = "Team Wins and Losses!A1:C13"
+	const encodedRange = encodeURIComponent(range)
+	const response: Response = await fetch(
+		`http://localhost:3000/api/${encodedRange}`
+	)
+	console.log(`response: ${JSON.stringify(response)}`)
+	const data: (DataItem | string[])[] = await response.json()
+	// const rawData = JSON.stringify(data)
 	// console.log(`data: ${JSON.stringify(data)}`)
-	const data = dbMock
+	// const data = dbMock
 
 	// Assuming data is an array of objects
 	const slicedData: string[] = data[0] as string[]
@@ -98,6 +100,7 @@ export default async function IndexPage() {
 						2022 Season
 					</h2>
 					<DataTable columns={columns} data={values} />
+
 					<StatsLinkCards />
 				</div>
 			</section>

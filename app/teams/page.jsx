@@ -4,11 +4,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import dbMock from "../../db.json"
 
 // const getData = async (range: string) => {
-const getData = async () => {
-	// const encodedRange = encodeURIComponent(range)
-	// const response = await fetch(`http://localhost:3000/api/${encodedRange}`)
-	// const data = await response.json()
-	const data = dbMock
+const getData = async (range) => {
+	const encodedRange = encodeURIComponent(range)
+	const response = await fetch(`http://localhost:3000/api/${encodedRange}`)
+	const data = await response.json()
+	// const data = dbMock
 	// Assuming data is an array of objects
 	const slicedData = data.slice(0, 1)[0]
 
