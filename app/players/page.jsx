@@ -11,6 +11,7 @@ async function getData(range) {
 	// Fetch data from your API here.
 
 	const encodedRange = encodeURIComponent(range)
+	console.log(`Peticion a la API: ${process.env.API_URL}/api/${encodedRange}`) //petición a la api
 	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 
 	const data = await response.json()
