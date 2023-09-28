@@ -140,6 +140,7 @@ if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
 		serviceAccount = JSON.parse(credentialsContent)
 	} catch (error) {
 		throw new Error(
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 			"Failed to parse GOOGLE_APPLICATION_CREDENTIALS: " + error.message
 		)
 	}
