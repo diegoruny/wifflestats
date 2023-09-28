@@ -7,16 +7,17 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-
-import { MainNav } from "./main-nav"
 import {
 	Sheet,
 	SheetClose,
 	SheetContent,
+	// SheetDescription,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-} from "./ui/sheet"
+} from "@/components/ui/sheet"
+
+import { MainNav } from "./main-nav"
 
 const HamburgerNav = () => {
 	return (
@@ -25,7 +26,7 @@ const HamburgerNav = () => {
 				<HamburgerMenuIcon />
 			</SheetTrigger>
 			<SheetContent side={"left"}>
-				<SheetHeader className="m-4 items-center">
+				<SheetHeader>
 					<SheetTitle>
 						<MainNav items={siteConfig.mainNav} />
 					</SheetTitle>

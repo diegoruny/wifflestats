@@ -1,7 +1,6 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import logoTournament from "public/logohcwiffleag.jpg"
 
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
@@ -17,7 +16,7 @@ export function MainNav({ items }: MainNavProps) {
 			<Link href="/" className="flex items-center space-x-2">
 				<div className="overflow-hidden rounded-full">
 					<Image
-						src={logoTournament}
+						src="/logohcwiffleag.ico"
 						alt="Tournament Logo"
 						height={40}
 						width={40}

@@ -120,7 +120,6 @@
 // }
 import Image from "next/image"
 import Link from "next/link"
-import logoTournament from "public/logohcwiffleag.jpg"
 
 import { sponsors } from "@/lib/sponsors"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
@@ -188,7 +187,6 @@ async function getData() {
 
 export default async function IndexPage() {
 	const { columns, values } = await getData()
-
 	return (
 		<>
 			<section className="container grid h-screen items-center gap-6 text-center md:py-10">
@@ -196,9 +194,10 @@ export default async function IndexPage() {
 					<div className=" w-[200px] ">
 						<AspectRatio ratio={1 / 1}>
 							<Image
-								src={logoTournament}
+								src="/logohcwiffleag.jpg"
 								alt="Tournament Logo"
 								className="rounded-full object-cover"
+								fill={true} // {true} | {false}
 							/>
 						</AspectRatio>
 					</div>

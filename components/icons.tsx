@@ -1,19 +1,20 @@
 import {
 	Facebook,
+	LucideIcon,
 	LucideProps,
 	Moon,
 	SunMedium,
-	type Icon as LucideIcon,
 } from "lucide-react"
-import logo from "public/logohcwiffleag.ico"
 
-export type Icon = LucideIcon
+// import logo from "../public/logohcwiffleag.ico"
+
+export type { LucideIcon as Icon }
 
 export const Icons = {
 	sun: SunMedium,
 	moon: Moon,
 	facebook: Facebook,
-	logo: logo,
+	// logo: logo,
 	gitHub: (props: LucideProps) => (
 		<svg viewBox="0 0 438.549 438.549" {...props}>
 			<path

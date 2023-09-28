@@ -3,6 +3,10 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
+		"noImplicitThis": false,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"noImplicitReturns": false,
 		"noImplicitAny": false,
 		"strict": false,
 		"forceConsistentCasingInFileNames": true,
@@ -32,7 +36,8 @@
 		".next/types/**/*.ts",
 		"app/page.tsx",
 		"app/teams/page.jsx",
-		"app/players/page.jsx"
+		"app/players/page.jsx",
+		"types/**/*.ts"
 	],
 	"exclude": ["node_modules"]
 }
