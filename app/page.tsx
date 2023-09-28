@@ -34,7 +34,14 @@ async function getData() {
 	// const rawData = JSON.stringify(data)
 	// console.log(`data: ${JSON.stringify(data)}`)
 	// const data = dbMock
-
+	// Verificar si data es una matriz
+	if (!Array.isArray(data)) {
+		console.error(
+			"Error: La respuesta de la API no es una matriz. Respuesta:",
+			data
+		)
+		throw new Error("La respuesta de la API no es una matriz")
+	}
 	// Assuming data is an array of objects
 	const slicedData: string[] = data[0] as string[]
 	// console.log(`slicedData: ${JSON.stringify(slicedData)}`)
