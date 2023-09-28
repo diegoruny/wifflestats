@@ -130,7 +130,10 @@ import { Separator } from "@/components/ui/separator"
 import SponsorsSection from "@/components/sponsorsSection"
 import { StatsLinkCards } from "@/components/statsLinkCards"
 
+import dbMock from "../db.json"
+
 interface DataItem {
+	team: string
 	w: number
 	l: number
 }
@@ -143,11 +146,15 @@ interface Column {
 async function getData() {
 	const range = "Team Wins and Losses!A1:C13"
 	const encodedRange = encodeURIComponent(range)
+	console.log(`Fetch API URL: ${process.env.API_URL}/api/${encodedRange}`)
 	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 
-	console.log(`response: ${JSON.stringify(response)}`)
-	const data: (DataItem | string[])[] = await response.json()
+	if (!response.ok) {
+		throw new Error("Failed to fetch data")
+	}
 
+	// const data: (DataItem | string[])[] = await response.json()
+	const data = dbMock
 	if (!Array.isArray(data)) {
 		console.error(
 			"Error: La respuesta de la API no es una matriz. Respuesta:",
@@ -157,7 +164,6 @@ async function getData() {
 	}
 
 	const slicedData: string[] = data[0] as string[]
-
 	const columns: Column[] = slicedData.map((header) => ({
 		accessorKey: header.toLowerCase(),
 		header: header.toUpperCase(),
@@ -169,7 +175,6 @@ async function getData() {
 	})
 
 	const rawValues: DataItem[] = data.slice(1) as DataItem[]
-
 	const values = rawValues.map((value) => {
 		const winPercentage = (value.w / (value.w + value.l)).toFixed(3)
 		return {
@@ -181,7 +186,9 @@ async function getData() {
 	return { columns, values }
 }
 
-function IndexPage({ columns, values }) {
+export default async function IndexPage() {
+	const { columns, values } = await getData()
+
 	return (
 		<>
 			<section className="container grid h-screen items-center gap-6 text-center md:py-10">
@@ -225,17 +232,3 @@ function IndexPage({ columns, values }) {
 		</>
 	)
 }
-
-export async function getStaticProps() {
-	const { columns, values } = await getData()
-
-	return {
-		props: {
-			columns,
-			values,
-		},
-		// revalidate: 3600, // Regenerate the page every hour.
-	}
-}
-
-export default IndexPage

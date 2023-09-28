@@ -4,7 +4,7 @@ import { DataTable } from "@/components/ui/data-table"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import dbMock from "../../db.json"
+import dbMock from "../../indivudualPitching.json"
 
 // async function getData(range: string) {
 async function getData(range) {
@@ -14,8 +14,8 @@ async function getData(range) {
 	console.log(`Peticion a la API: ${process.env.API_URL}/api/${encodedRange}`) //petición a la api
 	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 
-	const data = await response.json()
-	// const data = dbMock
+	// const data = await response.json()
+	const data = dbMock
 	// Verificar si data es una matriz
 	if (!Array.isArray(data)) {
 		console.error(
