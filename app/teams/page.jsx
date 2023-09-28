@@ -6,8 +6,8 @@ import dbMock from "../../indivudualPitching.json"
 // const getData = async (range: string) => {
 const getData = async (range) => {
 	const encodedRange = encodeURIComponent(range)
-	console.log(`Peticion a la API: ${process.env.API_URL}/api/${encodedRange}`) //petición a la api
-	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
+	// console.log(`Peticion a la API: ${process.env.API_URL}/api/${encodedRange}`) //petición a la api
+	// const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 	// const data = await response.json()
 	const data = dbMock
 	// Verificar si data es una matriz

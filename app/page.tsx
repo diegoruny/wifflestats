@@ -145,12 +145,12 @@ interface Column {
 async function getData() {
 	const range = "Team Wins and Losses!A1:C13"
 	const encodedRange = encodeURIComponent(range)
-	console.log(`Fetch API URL: ${process.env.API_URL}/api/${encodedRange}`)
-	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
+	// console.log(`Fetch API URL: ${process.env.API_URL}/api/${encodedRange}`)
+	// const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 
-	if (!response.ok) {
-		throw new Error("Failed to fetch data")
-	}
+	// if (!response.ok) {
+	// 	throw new Error("Failed to fetch data")
+	// }
 
 	// const data: (DataItem | string[])[] = await response.json()
 	const data = dbMock
