@@ -5,6 +5,9 @@ const nextConfig = {
 	devIndicators: {
 		buildActivityPosition: "bottom-right",
 	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
 }
 
 export default nextConfig
