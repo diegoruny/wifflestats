@@ -117,8 +117,8 @@
 // 		res.status(500).json({ message: "Error fetching data" })
 // 	}
 // }
-import fs from "fs"
-import path from "path"
+// import fs from "fs"
+// import path from "path"
 import { NextApiRequest, NextApiResponse } from "next"
 import { google } from "googleapis"
 
@@ -132,12 +132,15 @@ interface ServiceAccount {
 let serviceAccount: ServiceAccount
 if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
 	try {
-		const credentialsPath = path.resolve(
-			process.cwd(),
-			process.env.GOOGLE_APPLICATION_CREDENTIALS
-		)
-		const credentialsContent = fs.readFileSync(credentialsPath, "utf-8")
-		serviceAccount = JSON.parse(credentialsContent)
+		serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS)
+		//This is for dev only because it uses the .env.local file that is pointing to the secret.json file wich is local on my pc
+		// try {
+		// 	const credentialsPath = path.resolve(
+		// 		process.cwd(),
+		// 		process.env.GOOGLE_APPLICATION_CREDENTIALS
+		// 	)
+		// 	const credentialsContent = fs.readFileSync(credentialsPath, "utf-8")
+		// 	serviceAccount = JSON.parse(credentialsContent)
 	} catch (error) {
 		throw new Error(
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
