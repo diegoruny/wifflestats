@@ -200,6 +200,6 @@ export default async function handler(
 		res.status(200).json(cleanedData2)
 	} catch (error) {
 		console.error(error)
-		res.status(500).json({ message: "Error fetching data" })
+		res.status(500).json({ message: `Error fetching data: ${error.message}` })
 	}
 }
