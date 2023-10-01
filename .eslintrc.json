@@ -27,6 +27,7 @@
 	"overrides": [
 		{
 			"files": ["*.js", "*.jsx"],
+			// "parser": "babel-eslint",
 			"rules": {
 				"@typescript-eslint/*": "off"
 			}

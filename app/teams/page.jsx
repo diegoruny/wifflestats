@@ -1,15 +1,17 @@
 import { DataTable } from "@/components/ui/data-table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import dbMock from "../../indivudualPitching.json"
+// import dbMock from "../../indivudualPitching.json"
 
 // const getData = async (range: string) => {
-const getData = async (range) => {
-	const encodedRange = encodeURIComponent(range)
+async function getData(range) {
+	// const encodedRange = encodeURIComponent(range)
 	// console.log(`Peticion a la API: ${process.env.API_URL}/api/${encodedRange}`) //petición a la api
 	// const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 	// const data = await response.json()
-	const data = dbMock
+	const hittingData = require("../../individualHitting.json")
+	const pitchingData = require("../../individualPitching.json")
+	const data = range === "Team Hitting!A1:L13" ? hittingData : pitchingData
 	// Verificar si data es una matriz
 	if (!Array.isArray(data)) {
 		console.error(
@@ -53,7 +55,7 @@ export default async function Teams() {
 			{/* <p>{prueba}</p> */}
 			<h1 className="text-center font-bold">Stats by Teams</h1>
 			<br />
-			<Tabs defaultValue="teamHitting" className="">
+			<Tabs defaultValue="teamHitting">
 				<TabsList>
 					<TabsTrigger value="teamHitting">Hitting</TabsTrigger>
 					<TabsTrigger value="teamPitching">Pitching</TabsTrigger>

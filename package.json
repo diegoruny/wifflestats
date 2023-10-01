@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --no-lint",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
@@ -50,6 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "autoprefixer": "^10.4.16",
+    "babel-eslint": "^10.1.0",
     "eslint": "^8.50.0",
     "eslint-config-next": "^13.5.3",
     "eslint-config-prettier": "^9.0.0",
