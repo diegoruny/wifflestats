@@ -27,8 +27,8 @@
 				"name": "next"
 			}
 		],
-		"strictNullChecks": false
-		// "outDir": "dist"
+		"strictNullChecks": false,
+		"outDir": "dist"
 	},
 	"include": [
 		"next-env.d.ts",

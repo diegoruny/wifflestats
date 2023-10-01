@@ -59,7 +59,7 @@ export default async function Players() {
 		<section className="mt-12 p-2 md:container md:min-w-[526px] md:max-w-full">
 			<h1 className="text-center font-bold">Stats by Players</h1>
 			<br />
-			<Tabs defaultValue="hitting" className="">
+			<Tabs defaultValue="hitting">
 				<TabsList>
 					<TabsTrigger value="hitting">Hitting</TabsTrigger>
 					<TabsTrigger value="pitching">Pitching</TabsTrigger>
