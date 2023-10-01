@@ -5,13 +5,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 // const getData = async (range: string) => {
 async function getData(range) {
-	// const encodedRange = encodeURIComponent(range)
+	const encodedRange = encodeURIComponent(range)
 	// console.log(`Peticion a la API: ${process.env.API_URL}/api/${encodedRange}`) //petición a la api
-	// const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
-	// const data = await response.json()
-	const hittingData = require("../../individualHitting.json")
-	const pitchingData = require("../../individualPitching.json")
-	const data = range === "Team Hitting!A1:L13" ? hittingData : pitchingData
+	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
+	const data = await response.json()
+	// const hittingData = require("../../individualHitting.json")
+	// const pitchingData = require("../../individualPitching.json")
+	// const data = range === "Team Hitting!A1:L13" ? hittingData : pitchingData
+
 	// Verificar si data es una matriz
 	if (!Array.isArray(data)) {
 		console.error(

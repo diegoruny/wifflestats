@@ -1,22 +1,21 @@
 import { DataTable } from "@/components/ui/data-table"
-import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
-// import dbMock from "../../indivudualPitching.json"
 
 // async function getData(range: string) {
 async function getData(range) {
 	// Fetch data from your API here.
 
-	// const encodedRange = encodeURIComponent(range)
+	const encodedRange = encodeURIComponent(range)
 	// console.log(`Peticion a la API: ${process.env.API_URL}/api/${encodedRange}`) //petición a la api
-	// const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
+	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 
-	// const data = await response.json()
-	const hittingData = require("../../individualHitting.json")
-	const pitchingData = require("../../individualPitching.json")
-	const data =
-		range === "individual Hitting!A1:M173" ? hittingData : pitchingData
+	const data = await response.json()
+	// This is mock data for development purposes
+	// const hittingData = require("../../individualHitting.json")
+	// const pitchingData = require("../../individualPitching.json")
+	// const data =
+	// 	range === "individual Hitting!A1:M173" ? hittingData : pitchingData
+
 	// Verificar si data es una matriz
 	if (!Array.isArray(data)) {
 		console.error(

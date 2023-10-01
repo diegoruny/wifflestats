@@ -146,14 +146,14 @@ async function getData() {
 	const range = "Team Wins and Losses!A1:C13"
 	const encodedRange = encodeURIComponent(range)
 	// console.log(`Fetch API URL: ${process.env.API_URL}/api/${encodedRange}`)
-	// const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
+	const response = await fetch(`${process.env.API_URL}/api/${encodedRange}`)
 
-	// if (!response.ok) {
-	// 	throw new Error("Failed to fetch data")
-	// }
+	if (!response.ok) {
+		throw new Error("Failed to fetch data")
+	}
 
-	// const data: (DataItem | string[])[] = await response.json()
-	const data = dbMock
+	const data: (DataItem | string[])[] = await response.json()
+	// const data = dbMock
 	if (!Array.isArray(data)) {
 		console.error(
 			"Error: La respuesta de la API no es una matriz. Respuesta:",
@@ -175,7 +175,7 @@ async function getData() {
 
 	const rawValues: DataItem[] = data.slice(1) as DataItem[]
 	const values = rawValues.map((value) => {
-		const winPercentage = (value.w / (value.w + value.l)).toFixed(3)
+		const winPercentage = ((value.w / (value.w + value.l)) * 100).toFixed()
 		return {
 			...value,
 			"%": winPercentage,
