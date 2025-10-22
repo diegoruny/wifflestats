@@ -10,7 +10,7 @@ const Alertmsg = () => {
 			<AlertTriangle className="h-5 w-5" />
 			<AlertTitle>Heads up!</AlertTitle>
 			<AlertDescription>
-				This is an unfinished project and is not on developmnent. Please{" "}
+				This is an unfinished project and is not in development. Please{" "}
 				<Link
 					className="hover:text-primary-foreground  underline"
 					href={siteConfig.links.portfolioContact}
@@ -19,7 +19,7 @@ const Alertmsg = () => {
 				</Link>{" "}
 				if you need more info.
 				<br />
-				The brands and logos are property of their respective owners.they have
+				The brands and logos are property of their respective owners. They have
 				only been used for educational purposes.
 			</AlertDescription>
 		</Alert>
