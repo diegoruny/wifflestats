@@ -1,13 +1,13 @@
 import {
 	Facebook,
-	LucideProps,
+	type LucideProps,
 	Moon,
 	SunMedium,
 	type Icon as LucideIcon,
 } from "lucide-react"
 import logo from "public/logohcwiffleag.ico"
 
-export type Icon = LucideIcon
+export type Icon = typeof LucideIcon
 
 export const Icons = {
 	sun: SunMedium,

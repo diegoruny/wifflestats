@@ -1,7 +1,8 @@
-const { fontFamily } = require("tailwindcss/defaultTheme")
+import { fontFamily } from "tailwindcss/defaultTheme"
+import tailwindcssAnimate from "tailwindcss-animate"
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
 	darkMode: ["class"],
 	content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
 	theme: {
@@ -72,5 +73,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 }

@@ -1,53 +1,255 @@
-# Haynies Corner Wiffleball League Stats
+# 🥎 Haynies Corner Wiffleball League Stats
 
-An unofficial statistics website for the Haynies Corner Wiffleball League, a local community league in Evansville, IN. This project showcases team standings, player statistics, and game results with a modern, responsive interface.
+A modern, fast, and accessible statistics website for the Haynies Corner Wiffleball League in Evansville, IN. Built with the latest web technologies for optimal performance and developer experience.
 
-> **Note**: This is an archived portfolio project and is no longer in active development.
+## ✨ Features
 
-## Overview
+- **📊 Comprehensive Stats**: Player and team hitting/pitching statistics
+- **🌙 Dark Mode**: System-aware theme switching
+- **📱 Responsive Design**: Mobile-first, works on all devices
+- **⚡ Fast Loading**: Optimized with Next.js 15 and React 19
+- **🔍 Type Safety**: Full TypeScript coverage
+- **♿ Accessibility**: Built with Radix UI components
+- **🧪 Testing Ready**: Vitest setup with React Testing Library
+- **🔧 Developer Experience**: Modern tooling with Biome and ESLint v9
 
-This web application provides a comprehensive statistics tracking system for a local wiffleball league, featuring real-time standings, detailed player performance metrics, and team analytics. The project demonstrates modern web development practices with Next.js, TypeScript, and a component-based architecture.
+## 🚀 Technology Stack (2025)
 
-## Features
+### **Core Framework**
+- **Next.js 15.1** - Latest React framework with Turbopack
+- **React 19** - Latest React with new features
+- **TypeScript 5.7** - Strict type safety
 
-- **League Standings**: Interactive table showing team rankings with win/loss records and win percentages
-- **Player Statistics**: Detailed hitting and pitching stats for individual players
-- **Team Analytics**: Comprehensive team-level hitting and pitching statistics
-- **Dark Mode Support**: Toggle between light and dark themes
-- **Responsive Design**: Mobile-first design that works on all devices
-- **Modern UI**: Built with Radix UI and Tailwind CSS for a polished user experience
+### **Data & State Management**
+- **TanStack Query v5** - Server state management with React 19 support
+- **TanStack React Table v8** - Powerful table component
+- **Zod** - Runtime type validation
 
-## Technology Stack
+### **UI & Styling**
+- **Tailwind CSS 3.4** - Utility-first CSS framework
+- **Radix UI** - Accessible headless components
+- **Lucide React** - Modern icon library
+- **Framer Motion** - Animation library
 
-### Core
-- **Next.js 14.2** - React framework with App Router and server components
-- **React 18.2** - UI library
-- **TypeScript 5.1** - Type-safe JavaScript
-
-### Styling & UI
-- **Tailwind CSS** - Utility-first CSS framework
-- **Radix UI** - Accessible headless UI components
-- **shadcn/ui** - High-quality React component library
-- **Lucide React** - Icon library
-
-### Data & State
-- **TanStack React Query** - Data fetching and caching
-- **TanStack React Table** - Table component for data display
-- **Google Sheets API** - Data source integration
-
-### Development Tools
-- **ESLint** - Code linting
+### **Development & Quality**
+- **Biome** - Fast linter and formatter
+- **ESLint v9** - Modern linting with flat config
+- **Vitest** - Fast unit testing
+- **React Testing Library** - Component testing
 - **Prettier** - Code formatting
-- **TypeScript ESLint** - TypeScript-specific linting
 
-## Getting Started
+### **Performance & Security**
+- **Sharp** - Image optimization
+- **Security Headers** - XSS and CSRF protection
+- **Bundle Analysis** - Optimized imports
+
+## 🛠️ Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ installed
-- npm or yarn package manager
+- **Node.js 20+** (LTS recommended)
+- **npm 10+** or **pnpm 8+**
 
 ### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/diegoruny/wifflestats.git
+cd wifflestats
+
+# Install dependencies
+npm install
+
+# Start development server with Turbopack
+npm run dev
+
+# Or with pnpm (recommended for speed)
+pnpm install
+pnpm dev
+```
+
+### Development Scripts
+
+```bash
+# Development with Turbopack (faster)
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+
+# Type checking
+npm run typecheck
+
+# Linting and formatting
+npm run check          # Biome check
+npm run check:fix      # Biome fix
+npm run lint           # ESLint check
+npm run lint:fix       # ESLint fix
+
+# Testing
+npm run test           # Run tests
+npm run test:ui        # Run tests with UI
+
+# Code formatting
+npm run format:check   # Check formatting
+npm run format:write   # Fix formatting
+```
+
+## 🏗️ Project Structure
+
+```
+wifflestats/
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Root layout with providers
+│   ├── page.tsx           # Home page
+│   ├── players/           # Player stats page
+│   └── teams/             # Team stats page
+├── components/            # Reusable components
+│   ├── ui/               # Base UI components
+│   ├── providers/        # React context providers
+│   └── ...               # Feature components
+├── lib/                  # Utilities and configurations
+├── types/                # TypeScript type definitions
+├── tests/                # Test setup and utilities
+├── mock*.json            # Mock data files
+└── ...config files
+```
+
+## 🧪 Testing
+
+This project uses **Vitest** for fast unit testing and **React Testing Library** for component testing:
+
+```bash
+# Run all tests
+npm run test
+
+# Run tests with UI (interactive)
+npm run test:ui
+
+# Run tests in watch mode
+npm test -- --watch
+
+# Run tests with coverage
+npm test -- --coverage
+```
+
+### Example Test
+
+```typescript
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
+import { QueryProvider } from '@/components/providers/query-provider'
+import Players from '@/app/players/page'
+
+describe('Players Page', () => {
+  it('renders player statistics', () => {
+    render(
+      <QueryProvider>
+        <Players />
+      </QueryProvider>
+    )
+
+    expect(screen.getByText('Stats by Players')).toBeInTheDocument()
+  })
+})
+```
+
+## 🔧 Configuration
+
+### TypeScript
+
+Strict TypeScript configuration with latest features:
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "bundler",
+    "target": "es2022"
+  }
+}
+```
+
+### Next.js 15
+
+Modern configuration with performance optimizations:
+
+```javascript
+const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
+    turbo: { /* Turbopack rules */ }
+  }
+}
+```
+
+## 📝 API Integration
+
+The app supports both mock data and live API integration:
+
+```typescript
+// Mock data (development)
+import mockPlayerHitting from './mockPlayerHitting.json'
+
+// Live API (production)
+const response = await fetch('/api/players/hitting')
+const data = await response.json()
+```
+
+### Google Sheets Integration
+
+For live data, configure Google Sheets API:
+
+1. Create a Google Cloud project
+2. Enable Google Sheets API
+3. Create service account credentials
+4. Share your sheet with the service account email
+5. Add credentials to environment variables
+
+## 🚦 Performance
+
+This modernized stack provides:
+
+- **Fast Development**: Turbopack dev server
+- **Type Safety**: 100% TypeScript coverage
+- **Bundle Optimization**: Tree-shaking and code splitting
+- **Image Optimization**: Next.js Image component with WebP/AVIF
+- **Caching**: Smart query caching with TanStack Query
+- **Security**: Modern security headers
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes with proper TypeScript types
+4. Add tests for new features
+5. Run the full check: `npm run check && npm run test && npm run build`
+6. Commit your changes (`git commit -m 'Add amazing feature'`)
+7. Push to the branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Haynies Corner Wiffleball League** - For the inspiration and data
+- **Vercel** - For hosting and deployment
+- **Next.js Team** - For the amazing framework
+- **TanStack** - For excellent data fetching tools
+- **Radix UI** - For accessible components
+
+---
+
+Built with ❤️ by [Diego](https://github.com/diegoruny) using the latest 2025 web technologies.
 
 1. Clone the repository:
 ```bash
