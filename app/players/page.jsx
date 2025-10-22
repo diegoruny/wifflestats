@@ -4,17 +4,18 @@ import { DataTable } from "@/components/ui/data-table"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import dbMock from "../../db.json"
+import mockPlayerHitting from "../../mockPlayerHitting.json"
+import mockPlayerPitching from "../../mockPlayerPitching.json"
 
 // async function getData(range: string) {
-async function getData() {
+async function getData(dataSource) {
 	// Fetch data from your API here.
 
 	// const encodedRange = encodeURIComponent(range)
 	// const response = await fetch(`http://localhost:3000/api/${encodedRange}`)
 
 	// const data = await response.json()
-	const data = dbMock
+	const data = dataSource
 
 	// Assuming data is an array of objects
 	const slicedData = data.slice(0, 1)[0]
@@ -34,8 +35,8 @@ export default async function Players() {
 	const pitchingRange = "individual Pitching!A1:R70"
 
 	const [hittingData, pitchingData] = await Promise.all([
-		getData(hittingRange),
-		getData(pitchingRange),
+		getData(mockPlayerHitting),
+		getData(mockPlayerPitching),
 	])
 
 	const [hittingColumns, hittingValues] = [

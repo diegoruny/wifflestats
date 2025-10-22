@@ -96,22 +96,36 @@ npm start
 
 ```
 wifflestats/
-├── app/                    # Next.js App Router pages
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Home page with standings
-│   ├── players/           # Player statistics page
-│   └── teams/             # Team statistics page
-├── components/            # React components
-│   ├── ui/               # UI components (shadcn/ui)
-│   ├── site-header.tsx   # Site header with navigation
+├── app/                         # Next.js App Router pages
+│   ├── layout.tsx              # Root layout
+│   ├── page.tsx                # Home page with standings
+│   ├── players/                # Player statistics page
+│   └── teams/                  # Team statistics page
+├── components/                  # React components
+│   ├── ui/                     # UI components (shadcn/ui)
+│   ├── site-header.tsx         # Site header with navigation
 │   └── ...
-├── config/               # Configuration files
-│   └── site.ts          # Site configuration
-├── lib/                 # Utility functions
-├── types/               # TypeScript type definitions
-├── public/              # Static assets
-└── db.json             # Mock database (2022 Season data)
+├── config/                      # Configuration files
+│   └── site.ts                 # Site configuration
+├── lib/                         # Utility functions
+├── types/                       # TypeScript type definitions
+├── public/                      # Static assets
+├── db.json                      # Standings data (2022 Season)
+├── mockPlayerHitting.json       # Player hitting statistics (fictional data)
+├── mockPlayerPitching.json      # Player pitching statistics (fictional data)
+├── mockTeamHitting.json         # Team hitting statistics (fictional data)
+└── mockTeamPitching.json        # Team pitching statistics (fictional data)
 ```
+
+## Data Structure
+
+This project uses **fictional mockup data** for all statistics to ensure privacy and make the project self-contained:
+
+- **League Standings** (`db.json`) - Team win/loss records for the 2022 season
+- **Player Statistics** - Individual hitting and pitching stats with fictional player names
+- **Team Statistics** - Aggregated hitting and pitching stats by team
+
+All player names and statistics are fictional and generated for demonstration purposes. The team names are preserved from the original league structure.
 
 ## Known Issues
 
