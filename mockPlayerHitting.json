@@ -1,5 +1,4 @@
 [
-	["Player", "Team", "G", "AB", "R", "H", "2B", "3B", "HR", "RBI", "BB", "K", "AVG"],
 	{ "Player": "Jake Martinez", "Team": "Doc's", "G": 9, "AB": 38, "R": 12, "H": 18, "2B": 3, "3B": 1, "HR": 4, "RBI": 15, "BB": 6, "K": 8, "AVG": ".474" },
 	{ "Player": "Marcus Chen", "Team": "711", "G": 9, "AB": 36, "R": 11, "H": 16, "2B": 4, "3B": 0, "HR": 3, "RBI": 13, "BB": 5, "K": 7, "AVG": ".444" },
 	{ "Player": "Tyler Johnson", "Team": "HCO", "G": 9, "AB": 35, "R": 10, "H": 15, "2B": 2, "3B": 2, "HR": 2, "RBI": 12, "BB": 7, "K": 6, "AVG": ".429" },

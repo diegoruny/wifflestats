@@ -1,6 +1,6 @@
 import "@/app/globals.css"
 
-import { Metadata } from "next"
+import type { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -9,6 +9,7 @@ import Alert from "@/components/alertmsg"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import { QueryProvider } from "@/components/providers/query-provider"
 
 export const metadata: Metadata = {
 	title: {
@@ -16,15 +17,20 @@ export const metadata: Metadata = {
 		template: `%s - ${siteConfig.name}`,
 	},
 	description: siteConfig.description,
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
 	icons: {
 		icon: "/logohcwiffleag.ico",
 		shortcut: "/logohcwiffleag.ico",
 		apple: "/logohcwiffleag.ico",
 	},
+}
+
+export function generateViewport() {
+	return {
+		themeColor: [
+			{ media: "(prefers-color-scheme: light)", color: "white" },
+			{ media: "(prefers-color-scheme: dark)", color: "black" },
+		],
+	}
 }
 
 interface RootLayoutProps {
@@ -42,17 +48,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
 						fontSans.variable
 					)}
 				>
-					<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-						<div className="relative flex min-h-screen flex-col">
-							<SiteHeader />
-							<div className="flex-1">{children}</div>
-						</div>
-						<div className="bg-destructive-foreground fixed bottom-0 z-50 w-full rounded-lg">
-							<Alert />
-						</div>
+					<QueryProvider>
+						<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+							<div className="relative flex min-h-screen flex-col">
+								<SiteHeader />
+								<div className="flex-1">{children}</div>
+							</div>
+							<div className="bg-destructive-foreground fixed bottom-0 z-50 w-full rounded-lg">
+								<Alert />
+							</div>
 
-						<TailwindIndicator />
-					</ThemeProvider>
+							<TailwindIndicator />
+						</ThemeProvider>
+					</QueryProvider>
 				</body>
 			</html>
 		</>

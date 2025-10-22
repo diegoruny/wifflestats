@@ -3,14 +3,22 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
-		"noImplicitAny": false,
-		"strict": false,
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"strictPropertyInitialization": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
 		"forceConsistentCasingInFileNames": true,
-		"noEmit": false,
+		"noEmit": true,
 		"incremental": true,
 		"esModuleInterop": true,
 		"module": "esnext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"jsx": "preserve",
@@ -23,16 +31,19 @@
 				"name": "next"
 			}
 		],
-		"strictNullChecks": false
+		"target": "es2022",
+		"useDefineForClassFields": true
 	},
 	"include": [
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		".next/types/**/*.ts",
-		"app/page.jsx",
-		"app/teams/page.jsx",
-		"app/players/page.jsx"
+		".next/types/**/*.ts"
 	],
-	"exclude": ["node_modules"]
+	"exclude": [
+		"node_modules",
+		".next",
+		"dist",
+		"build"
+	]
 }

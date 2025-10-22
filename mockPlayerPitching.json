@@ -1,5 +1,4 @@
 [
-	["Player", "Team", "G", "GS", "W", "L", "SV", "IP", "H", "R", "ER", "BB", "K", "HR", "ERA", "WHIP", "K/9"],
 	{ "Player": "Carlos Ramirez", "Team": "Doc's", "G": 7, "GS": 7, "W": 6, "L": 1, "SV": 0, "IP": "28.1", "H": 18, "R": 8, "ER": 7, "BB": 6, "K": 34, "HR": 2, "ERA": "2.22", "WHIP": "0.85", "K/9": "10.8" },
 	{ "Player": "David Kim", "Team": "HCO", "G": 6, "GS": 6, "W": 5, "L": 1, "SV": 0, "IP": "24.0", "H": 16, "R": 7, "ER": 6, "BB": 5, "K": 28, "HR": 1, "ERA": "2.25", "WHIP": "0.88", "K/9": "10.5" },
 	{ "Player": "James Park", "Team": "711", "G": 6, "GS": 6, "W": 5, "L": 1, "SV": 0, "IP": "25.2", "H": 19, "R": 9, "ER": 7, "BB": 4, "K": 26, "HR": 2, "ERA": "2.45", "WHIP": "0.90", "K/9": "9.1" },
