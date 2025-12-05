@@ -1,14 +1,8 @@
-import Link from "next/link"
 import { PersonIcon } from "@radix-ui/react-icons"
 import { BarChartHorizontal, Users } from "lucide-react"
+import Link from "next/link"
 
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "./ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
 
 export const StatsLinkCards = () => {
 	return (

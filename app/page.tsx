@@ -2,13 +2,13 @@ import Image from "next/image"
 import Link from "next/link"
 import logoTournament from "public/logohcwiffleag.jpg"
 
-import { sponsors } from "@/lib/sponsors"
+import SponsorsSection from "@/components/sponsorsSection"
+import { StatsLinkCards } from "@/components/statsLinkCards"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Button } from "@/components/ui/button"
 import { DataTable } from "@/components/ui/data-table"
 import { Separator } from "@/components/ui/separator"
-import SponsorsSection from "@/components/sponsorsSection"
-import { StatsLinkCards } from "@/components/statsLinkCards"
+import { sponsors } from "@/lib/sponsors"
 
 import dbMock from "../db.json"
 
@@ -22,6 +22,23 @@ interface Column {
 	header: string
 }
 
+/**
+ * Fetches and processes league standings data
+ *
+ * Retrieves team standings from db.json mock data, calculates win percentages,
+ * and formats the data for display in the standings table.
+ *
+ * @returns Object containing table columns and processed team data with win percentages
+ *
+ * @remarks
+ * In production, this would fetch from Google Sheets API. Currently uses
+ * mock data from db.json for demonstration purposes.
+ *
+ * @example
+ * const { columns, values } = await getData()
+ * // columns: [{ accessorKey: 'team', header: 'TEAM' }, ...]
+ * // values: [{ team: 'Team A', w: 10, l: 5, '%': '0.667' }, ...]
+ */
 async function getData() {
 	// Fetch data from your API here.
 	// const range = "Team Wins and Losses!A1:C13"
@@ -38,7 +55,7 @@ async function getData() {
 	const slicedData: string[] = data[0] as string[]
 	// console.log(`slicedData: ${JSON.stringify(slicedData)}`)
 	// Get the column names
-	const columns: Column[] = slicedData.map((header) => ({
+	const columns: Column[] = slicedData.map(header => ({
 		accessorKey: header.toLowerCase(),
 		header: header.toUpperCase(),
 	}))
@@ -53,7 +70,7 @@ async function getData() {
 	// console.log(`Raw values: ${JSON.stringify(rawValues)}`)
 
 	// Calculate win percentage for each row
-	const values = rawValues.map((value) => {
+	const values = rawValues.map(value => {
 		const winPercentage = (value.w / (value.w + value.l)).toFixed(3)
 		return {
 			...value,
@@ -104,7 +121,7 @@ export default async function IndexPage() {
 
 			<SponsorsSection sponsors={sponsors} />
 
-			<div className="h-24 w-full"></div>
+			<div className="h-24 w-full" />
 		</>
 	)
 }

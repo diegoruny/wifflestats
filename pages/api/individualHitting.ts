@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from "next"
 import { google } from "googleapis"
+import type { NextApiRequest, NextApiResponse } from "next"
 
 // Define the type for the service account key.
 interface ServiceAccount {
@@ -31,10 +31,7 @@ const auth = new google.auth.JWT(
 const spreadsheetId = process.env.SPREADSHEET_ID
 const range = "individual Hitting!A1:M173"
 
-export default async function handler(
-	req: NextApiRequest,
-	res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
 		// Get the Google Sheets client.
 		const sheets = google.sheets({ version: "v4", auth: auth })
@@ -55,17 +52,17 @@ export default async function handler(
 		}
 		// Clean headers
 		const headers = rawHeaders
-			.map((header) => {
+			.map(header => {
 				// Skip if the header is an empty string
 				if (header === "") return null
 
 				// Remove spaces from the header, convert to lowercase, and ensure it's a string
 				return String(header).replace(/ /g, "").toLowerCase()
 			})
-			.filter((header) => header !== null)
+			.filter(header => header !== null)
 
 		// Clean and process the data as necessary.
-		const cleanedData = rows.map((row) => {
+		const cleanedData = rows.map(row => {
 			const data: Record<string, string | number> = {}
 			headers.forEach((header, index) => {
 				if (header) {
@@ -105,7 +102,7 @@ export default async function handler(
 		// }))
 		// console.log("cleanedData:", cleanedData)
 		// Return the cleaned data as JSON.
-		const cleanedData2 = [headers.filter((header) => header), ...cleanedData] // filter out null headers
+		const cleanedData2 = [headers.filter(header => header), ...cleanedData] // filter out null headers
 		res.status(200).json(cleanedData2)
 	} catch (error) {
 		console.error(error)

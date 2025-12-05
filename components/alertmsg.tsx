@@ -1,8 +1,8 @@
-import Link from "next/link"
 import { AlertTriangle } from "lucide-react"
+import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { siteConfig } from "@/config/site"
 
 const Alertmsg = () => {
 	return (
@@ -19,8 +19,8 @@ const Alertmsg = () => {
 				</Link>{" "}
 				if you need more info.
 				<br />
-				The brands and logos are property of their respective owners. They have
-				only been used for educational purposes.
+				The brands and logos are property of their respective owners. They have only been used for
+				educational purposes.
 			</AlertDescription>
 		</Alert>
 	)

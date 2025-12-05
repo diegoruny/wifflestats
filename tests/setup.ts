@@ -1,9 +1,9 @@
-import '@testing-library/jest-dom'
+import "@testing-library/jest-dom"
 
 // Mock Next.js router
-import { vi } from 'vitest'
+import { vi } from "vitest"
 
-vi.mock('next/navigation', () => ({
+vi.mock("next/navigation", () => ({
 	useRouter: () => ({
 		push: vi.fn(),
 		replace: vi.fn(),
@@ -13,14 +13,8 @@ vi.mock('next/navigation', () => ({
 		prefetch: vi.fn(),
 	}),
 	useSearchParams: () => new URLSearchParams(),
-	usePathname: () => '/',
+	usePathname: () => "/",
 }))
-
-// Mock environment variables
-Object.defineProperty(process.env, 'NODE_ENV', {
-	value: 'test',
-	writable: false,
-})
 
 // Global test utilities
 global.ResizeObserver = vi.fn().mockImplementation(() => ({

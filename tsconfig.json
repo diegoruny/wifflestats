@@ -34,16 +34,6 @@
 		"target": "es2022",
 		"useDefineForClassFields": true
 	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts"
-	],
-	"exclude": [
-		"node_modules",
-		".next",
-		"dist",
-		"build"
-	]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"exclude": ["node_modules", ".next", "dist", "build"]
 }

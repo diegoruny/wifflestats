@@ -89,6 +89,7 @@
 // 		// 	throw new Error("No data found in the sheet")
 // 		// }
 
+import { google } from "googleapis"
 // 		// // Clean and process the data as necessary.
 // 		// const cleanedData = rows.map((row) => ({
 // 		// 	id: String(row[0]),
@@ -115,8 +116,7 @@
 // 		res.status(500).json({ message: "Error fetching data" })
 // 	}
 // }
-import { NextApiRequest, NextApiResponse } from "next"
-import { google } from "googleapis"
+import type { NextApiRequest, NextApiResponse } from "next"
 
 // Define the type for the service account key.
 interface ServiceAccount {
@@ -140,18 +140,11 @@ const auth = new google.auth.JWT(
 
 const spreadsheetId = process.env.SPREADSHEET_ID
 
-export default async function handler(
-	req: NextApiRequest,
-	res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
 		const sheets = google.sheets({ version: "v4", auth })
 
-		const range =
-			typeof req.query.range === "string"
-				? decodeURIComponent(req.query.range)
-				: ""
-		console.log("Range:", range)
+		const range = typeof req.query.range === "string" ? decodeURIComponent(req.query.range) : ""
 
 		const response = await sheets.spreadsheets.values.get({
 			spreadsheetId,
@@ -166,10 +159,10 @@ export default async function handler(
 		}
 
 		const headers = rawHeaders
-			.map((header) => String(header).replace(/ /g, "").toLowerCase())
+			.map(header => String(header).replace(/ /g, "").toLowerCase())
 			.filter(Boolean)
 
-		const cleanedData = rows.map((row) => {
+		const cleanedData = rows.map(row => {
 			const data: Record<string, string | number> = {}
 			headers.forEach((header, index) => {
 				data[header] = index === 0 ? String(row[index]) : Number(row[index])

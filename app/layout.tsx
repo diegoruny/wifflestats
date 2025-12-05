@@ -2,14 +2,14 @@ import "@/app/globals.css"
 
 import type { Metadata } from "next"
 
-import { siteConfig } from "@/config/site"
-import { fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
 import Alert from "@/components/alertmsg"
+import { QueryProvider } from "@/components/providers/query-provider"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import { QueryProvider } from "@/components/providers/query-provider"
+import { siteConfig } from "@/config/site"
+import { fontSans } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
 	title: {
@@ -42,12 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 		<>
 			<html lang="en" suppressHydrationWarning>
 				<head />
-				<body
-					className={cn(
-						"bg-background min-h-screen font-sans antialiased",
-						fontSans.variable
-					)}
-				>
+				<body className={cn("bg-background min-h-screen font-sans antialiased", fontSans.variable)}>
 					<QueryProvider>
 						<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 							<div className="relative flex min-h-screen flex-col">
