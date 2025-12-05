@@ -114,36 +114,36 @@ npm run start
 npm run typecheck
 
 # Linting and formatting
-npm run check          # Biome check
-npm run check:fix      # Biome fix
-npm run lint           # ESLint check
-npm run lint:fix       # ESLint fix
+npm run check          # Biome check
+npm run check:fix      # Biome fix
+npm run lint           # ESLint check
+npm run lint:fix       # ESLint fix
 
 # Testing
-npm run test           # Run tests
-npm run test:ui        # Run tests with UI
+npm run test           # Run tests
+npm run test:ui        # Run tests with UI
 
 # Code formatting
-npm run format:check   # Check formatting
-npm run format:write   # Fix formatting
+npm run format:check   # Check formatting
+npm run format:write   # Fix formatting
 
 
 🏗️ Project Structure
 
 wifflestats/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root layout with providers
-│   ├── page.tsx           # Home page
-│   ├── players/           # Player stats page
-│   └── teams/             # Team stats page
-├── components/            # Reusable components
-│   ├── ui/               # Base UI components
-│   ├── providers/        # React context providers
-│   └── ...               # Feature components
-├── lib/                  # Utilities and configurations
-├── types/                # TypeScript type definitions
-├── tests/                # Test setup and utilities
-├── mock*.json            # Mock data files
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Root layout with providers
+│   ├── page.tsx           # Home page
+│   ├── players/           # Player stats page
+│   └── teams/             # Team stats page
+├── components/            # Reusable components
+│   ├── ui/               # Base UI components
+│   ├── providers/        # React context providers
+│   └── ...               # Feature components
+├── lib/                  # Utilities and configurations
+├── types/                # TypeScript type definitions
+├── tests/                # Test setup and utilities
+├── mock*.json            # Mock data files
 └── ...config files
 
 
@@ -172,15 +172,15 @@ import { QueryProvider } from '@/components/providers/query-provider'
 import Players from '@/app/players/page'
 
 describe('Players Page', () => {
-  it('renders player statistics', () => {
-    render(
-      <QueryProvider>
-        <Players />
-      </QueryProvider>
-    )
+  it('renders player statistics', () => {
+    render(
+      <QueryProvider>
+        <Players />
+      </QueryProvider>
+    )
 
-    expect(screen.getByText('Stats by Players')).toBeInTheDocument()
-  })
+    expect(screen.getByText('Stats by Players')).toBeInTheDocument()
+  })
 })
 
 
@@ -191,14 +191,14 @@ TypeScript
 Strict TypeScript configuration with latest features:
 
 {
-  "compilerOptions": {
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noUncheckedIndexedAccess": true,
-    "moduleResolution": "bundler",
-    "target": "es2022"
-  }
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "bundler",
+    "target": "es2022"
+  }
 }
 
 
@@ -207,11 +207,11 @@ Next.js 15
 Modern configuration with performance optimizations:
 
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
-    turbo: { /* Turbopack rules */ }
-  }
+  reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
+    turbo: { /* Turbopack rules */ }
+  }
 }
 
 
@@ -292,109 +292,3 @@ TanStack - For excellent data fetching tools
 Radix UI - For accessible components
 
 Built with ❤️ by Diego using the latest 2025 web technologies.
-
-Clone the repository:
-
-git clone [https://github.com/diegoruny/wifflestats.git](https://github.com/diegoruny/wifflestats.git)
-cd wifflestats
-
-
-Install dependencies:
-
-npm install
-
-
-Development
-
-Run the development server:
-
-npm run dev
-
-
-Open http://localhost:3000 in your browser to see the application.
-
-Build
-
-Create a production build:
-
-npm run build
-
-
-Start the production server:
-
-npm start
-
-
-Available Scripts
-
-npm run dev - Start development server
-
-npm run build - Create production build
-
-npm start - Start production server
-
-npm run lint - Run ESLint
-
-npm run lint:fix - Fix linting issues
-
-npm run typecheck - Run TypeScript type checking
-
-npm run format:write - Format code with Prettier
-
-npm run format:check - Check code formatting
-
-Project Structure
-
-wifflestats/
-├── app/                         # Next.js App Router pages
-│   ├── layout.tsx              # Root layout
-│   ├── page.tsx                # Home page with standings
-│   ├── players/                # Player statistics page
-│   └── teams/                  # Team statistics page
-├── components/                  # React components
-│   ├── ui/                     # UI components (shadcn/ui)
-│   ├── site-header.tsx         # Site header with navigation
-│   └── ...
-├── config/                      # Configuration files
-│   └── site.ts                 # Site configuration
-├── lib/                         # Utility functions
-├── types/                       # TypeScript type definitions
-├── public/                      # Static assets
-├── db.json                      # Standings data (2022 Season)
-├── mockPlayerHitting.json       # Player hitting statistics (fictional data)
-├── mockPlayerPitching.json      # Player pitching statistics (fictional data)
-├── mockTeamHitting.json         # Team hitting statistics (fictional data)
-└── mockTeamPitching.json        # Team pitching statistics (fictional data)
-
-
-Data Structure
-
-This project uses fictional mockup data for all statistics to ensure privacy and make the project self-contained:
-
-League Standings (db.json) - Team win/loss records for the 2022 season
-
-Player Statistics - Individual hitting and pitching stats with fictional player names
-
-Team Statistics - Aggregated hitting and pitching stats by team
-
-All player names and statistics are fictional and generated for demonstration purposes. The team names are preserved from the original league structure.
-
-Known Issues
-
-Sharp Dependency: The sharp image optimization package may fail to install in certain environments due to proxy restrictions. This is a known issue with the sharp binary download and does not affect core functionality.
-
-License
-
-This project is for portfolio demonstration purposes.
-
-Contact
-
-Diego Delgado - Portfolio - GitHub
-
-Acknowledgments
-
-Haynies Corner Wiffleball League community
-
-Haynies Corner Arts District
-
-All players and supporters of the league

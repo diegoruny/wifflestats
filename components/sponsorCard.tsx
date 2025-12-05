@@ -1,6 +1,6 @@
-import React from "react"
 import Image from "next/image"
-import { SponsorCardProps } from "types/sponsors"
+import type React from "react"
+import type { SponsorCardProps } from "types/sponsors"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -13,18 +13,12 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor }) => {
 				<CardHeader className="items-center p-3">
 					<div className="w-[200px]">
 						<AspectRatio ratio={4 / 3}>
-							<Image
-								src={`/images/${sponsor.image}`}
-								alt={`${sponsor.name} Logo`}
-								fill
-							/>
+							<Image src={`/images/${sponsor.image}`} alt={`${sponsor.name} Logo`} fill />
 						</AspectRatio>
 					</div>
 				</CardHeader>
 				<CardContent className="p-4 text-center text-base">
-					<CardTitle className="text-muted-foreground">
-						{sponsor.name}
-					</CardTitle>
+					<CardTitle className="text-muted-foreground">{sponsor.name}</CardTitle>
 				</CardContent>
 			</Card>
 		</a>

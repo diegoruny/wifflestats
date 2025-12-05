@@ -14,7 +14,7 @@ function makeQueryClient() {
 				gcTime: 10 * 60 * 1000, // 10 minutes (was cacheTime in v4)
 				retry: (failureCount, error) => {
 					// Don't retry on 4xx errors
-					if (error && 'status' in error && typeof error.status === 'number') {
+					if (error && "status" in error && typeof error.status === "number") {
 						if (error.status >= 400 && error.status < 500) {
 							return false
 						}
@@ -36,14 +36,13 @@ function getQueryClient() {
 	if (typeof window === "undefined") {
 		// Server: always make a new query client
 		return makeQueryClient()
-	} else {
-		// Browser: make a new query client if we don't already have one
-		// This is very important, so we don't re-make a new client if React
-		// suspends during the initial render. This may not be needed if we
-		// have a suspense boundary BELOW the creation of the query client
-		if (!browserQueryClient) browserQueryClient = makeQueryClient()
-		return browserQueryClient
 	}
+	// Browser: make a new query client if we don't already have one
+	// This is very important, so we don't re-make a new client if React
+	// suspends during the initial render. This may not be needed if we
+	// have a suspense boundary BELOW the creation of the query client
+	if (!browserQueryClient) browserQueryClient = makeQueryClient()
+	return browserQueryClient
 }
 
 interface QueryProviderProps {
@@ -60,10 +59,7 @@ export function QueryProvider({ children }: QueryProviderProps) {
 	return (
 		<QueryClientProvider client={queryClient}>
 			{children}
-			<ReactQueryDevtools
-				initialIsOpen={false}
-				buttonPosition="bottom-left"
-			/>
+			<ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-left" />
 		</QueryClientProvider>
 	)
 }
