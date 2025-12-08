@@ -14,19 +14,8 @@ const nextConfig = {
 		optimizePackageImports: [
 			"@radix-ui/react-icons",
 			"lucide-react",
-			"@tanstack/react-query",
-			"@tanstack/react-table"
+			"@tanstack/react-query"
 		],
-	},
-
-	// Turbopack configuration
-	turbopack: {
-		rules: {
-			"*.svg": {
-				loaders: ["@svgr/webpack"],
-				as: "*.js",
-			},
-		},
 	},
 
 	// Development experience
